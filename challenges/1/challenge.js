@@ -6,12 +6,7 @@ var response = {
 
 $(document).ready(function(){
 
-  /*
-   * Can you use jQuery to append <p>Hello World</p>
-   * to the target container in index.html
-   * using the item in response data?
-  */
-
-  // var item = ...
+  var item = response.data[0];
+  $("div#target").append("<p>" + item.message + "</p>");
 
 })
