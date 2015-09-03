@@ -39,14 +39,19 @@ app.get("/api/tweets/:id", function showTweet(req, res){
 app.post("/api/tweets", function createTweet(req, res){
   console.log("req.cookies", req.cookies)
 
+  var logged_in = req.cookies.logged_in;
+  if (logged_in !== "true") {
+    return res.sendStatus(401);
+  }
+
   var newTweet = req.body;
   // saves to database... assigns an _id...
 
   if ( req.xhr ) {
+    // it was an AJAX Request, so we need to respond with json
     res.send({
       data: [newTweet]
     });
-    // or HTTP Status Code 401, "not authorized"
   } else {
     // it was an HTML Form Request, so we need to redirect
     res.redirect("/nice-work")
