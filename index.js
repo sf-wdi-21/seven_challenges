@@ -28,10 +28,11 @@ app.get("/api/tweets/:id", function showTweet(req, res){
       { message: "There are two ways to write error-free programs; only the third one works." }
     ];
 
-  // var tweet = ...
+  var id = req.params.id;
+  var tweet = tweets[id];
 
   res.send({
-    // data: [ tweet ] // note we're sending back an array of one.
+    data: [ tweet ] // note we're sending back an array of one.
   });
 })
 
