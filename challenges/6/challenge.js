@@ -7,9 +7,13 @@ function render(items) {
 
 $(document).ready(function(){
 
-  /*
-   * When the user clicks the "tweet" button, can you submit the form
-   * using ajax and then render the ajax-response data?
-  */
+  $("form").on("submit", function(event){
+    event.preventDefault();
+    var $form = $(this);
+    var data = $form.serialize();
+    $.post("/api/tweets", data, function(response){
+      render(response.data);
+    });
+  })
 
 })
