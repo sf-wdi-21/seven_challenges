@@ -7,14 +7,8 @@ function render(items) {
 
 $(document).ready(function(){
 
-  /*
-   * Can you request tweets from `/api/tweets`
-   * and render the response data to the page
-   * using the `render` function, above?
-  */
-
-  // AJAX request to `/api/tweets`
-    // render(response.data);
-  //
+  $.get("/api/tweets", function(response){
+    render(response.data);
+  });
 
 })
