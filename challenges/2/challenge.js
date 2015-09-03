@@ -8,17 +8,10 @@ var response = {
 
 $(document).ready(function(){
 
-  /*
-   * Can you append _every_ message in
-   * response data to the target container
-   * in index.html, using a loop?
-  */
-
   function render(items) {
-    // LOOP
-      // var item = ...
-      // $("div#target").append("<p>" + item.message + "</p>")
-    //
+    items.map(function(item){
+      $("div#target").append("<p>" + item.message + "</p>")
+    })
   }
 
   render(response.data);
